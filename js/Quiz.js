@@ -2,6 +2,9 @@ class Quiz{
     constructor(){
         this.elementArray = [];
         this.questionArray = []
+        for(let i = 0; i < fetcheddataarray.length; i++){
+            this.questionArray.push(new Question)
+        }
     }
 
     correct(collection, answerArr){
@@ -12,15 +15,8 @@ class Quiz{
 
     }
 
-    createQuestionElement(){
-        //gör detta till en egen klass?
-        //skapar en div
-        //tar data från den data som hämtas
-        //trycker in varje alternativ till vänster om en ett-checkbox-element
-    }
-
     updateInterface(){
-
+        //gör detta till egen klass?
     }
 
 
