@@ -11,7 +11,15 @@ class Quiz{
 
     }
 
-    fetchQuestions(){
+    async fetchQuestions(numberOfQuestions){
+
+        await fetch(`https://quizapi.io/api/v1/questions?apiKey=4LvQ5A2OeL1eEM1blNXiuf8L9UwUD8v4xhdceYnV&limit=${numberOfQuestions}`)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+        })
+
+        console.log('hej')
 
     }
 

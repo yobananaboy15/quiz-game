@@ -1,13 +1,16 @@
-fetch("https://quizapi.io/api/v1/questions?limit=5", {
-  headers: {
-    "X-Api-Key": "4LvQ5A2OeL1eEM1blNXiuf8L9UwUD8v4xhdceYnV",
-  }
-})
-.then(response => response.json())
-.then(data => {
- 
-})
+async function fetchQuestions (numberOfQuestions){
 
+  await fetch(`https://quizapi.io/api/v1/questions?apiKey=4LvQ5A2OeL1eEM1blNXiuf8L9UwUD8v4xhdceYnV&limit=${numberOfQuestions}`)
+  .then(response => response.json())
+  .then(data => {
+      console.log(data)
+  })
+
+  console.log('hej')
+
+}
+
+fetchQuestions(10)
 //När användaren väljer hur många frågor som ska visas kör man en prompt som låt denne skriva in 5-10. Det värde används i query-strängen som skickas i requesten.
 
 //vilka klasser bör jag ha? var ska jag hålla reda på poäng?
@@ -33,3 +36,4 @@ fetch("https://quizapi.io/api/v1/questions?limit=5", {
 // 4. Någon annan metod sätter ihop en lång html string med en checkbox för varje alternativ som inte är null. Det här objektet finns sparat i en array och uppdateras.
 // 5. Användaren trycker på submit för att number 4 ska upprepas.
 // Vad händer här? Var ska man kolla om det är rätt eller fel? Koppla ihop checkboxarna med de rätta svaren i frågeobjektet.
+//hur ska man sen kolla de rätta svaren?
