@@ -11,6 +11,7 @@ class Question {
         div.append(questionObj.question)
         div.append(document.createElement('br'))
 
+        //skapar en array bestående av nycklarna från svarsalternativ-propertyn i questionobj.
         Object.keys(questionObj.answers).forEach(key =>{
 
             if(questionObj.answers[key]){

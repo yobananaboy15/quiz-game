@@ -1,16 +1,15 @@
-async function fetchQuestions (numberOfQuestions){
+document.addEventListener('DOMContentLoaded', e => {
 
-  await fetch(`https://quizapi.io/api/v1/questions?apiKey=4LvQ5A2OeL1eEM1blNXiuf8L9UwUD8v4xhdceYnV&limit=${numberOfQuestions}`)
-  .then(response => response.json())
-  .then(data => {
-      console.log(data)
-  })
+  let quiz = new Quiz();
+  
+  //console.log(quiz)
+  //jag ska ha ett inputfält med regex som kollar om det är 5-10. Även en knapp där man trycker på starta spel. Den startar spelet genom att 
+  //initiera ett quiz-objekt och kör alla metoder i quiz.
+})
 
-  console.log('hej')
 
-}
 
-fetchQuestions(10)
+
 //När användaren väljer hur många frågor som ska visas kör man en prompt som låt denne skriva in 5-10. Det värde används i query-strängen som skickas i requesten.
 
 //vilka klasser bör jag ha? var ska jag hålla reda på poäng?
