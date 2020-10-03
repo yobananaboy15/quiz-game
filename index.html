@@ -1,16 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <body>
-    <div>
-        
+    <div id="container">
+        <div id='question-container'></div>
+        <form action="">
+            <label for="name">Namn</label>
+            <input name="name" type="text">
+            <label for="number-of-questions">Number of questions (5-10)</label>
+            <input name="number-of-questions" type="text">
+
+            <button type="button" id='start-btn'>Starta spelet</button>
+        </form>
+        <!-- formulär som vias med namn och antal frågor -->
+        <!-- Här lägger jag in frågor -->
+        </div>
+        <button type="button" id='previous-btn'>Previous question</button>
+        <button type="button" id='next-btn'>Next question</button>
     </div>
-    <script src="js/script.js"></script>
+        <!-- knappar -->
+        
+    <script src="js/Game.js"></script>
     <script src="js/Question.js"></script>
-    <script src="js/Quiz.js"></script>
+    <script src="js/Questions.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

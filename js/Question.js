@@ -4,7 +4,7 @@ class Question {
         this.questionElement = this.createQuestionElement(questionObj)
     }
 
-    //skapar en div och fyller den med checkboxar och frågorna från det inskickade questionObj från konstruktorn.
+    //Funktion som skapar en div och fyller den med checkboxar och frågorna från det inskickade questionObj från konstruktorn.
     createQuestionElement(questionObj){
 
         const div = document.createElement('div')
@@ -20,7 +20,7 @@ class Question {
                 div.append(input)
 
                 //tar 7:e karaktären som är bokstaven för svarsalternativet
-                div.append(key[7] + ') ')
+                //div.append(key[7] + ') ')
             
                 div.append(questionObj.answers[key])
             }

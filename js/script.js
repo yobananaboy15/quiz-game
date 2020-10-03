@@ -1,10 +1,53 @@
 document.addEventListener('DOMContentLoaded', e => {
 
-  let quiz = new Quiz();
+//knapp för att gå bakåt en fråga index = current + 1
+document.getElementById('previous-btn').addEventListener('click', e =>{
+  document.getElementById('question-container').firstChild.replaceWith(quiz.elementArray[0].questionElement)
+})
+
+//knapp för att gå framåt en fråga index = current - -1
+document.getElementById('next-btn').addEventListener('click', e =>{
+  //hur ska jag hålla reda på var spelaren är? gameobjekt? game.currentQuestion + 1
+  document.getElementById('question-container').firstChild.replaceWith(quiz.elementArray[1].questionElement)
+  //game.currentQuestion ++
+})
   
-  //console.log(quiz)
+  //Alla dessa tre grejer ska ligga på startknappen
+  let quiz = new Questions();
+  //let game = new Game('axel', 0);
+
+
+//startar spelet genom att ta bort första formuläret, lägga till den första frågan.
+
+document.getElementById('start-btn').addEventListener('click', async e =>{
+
+  //om kravet om namn och antal rundor uppfylls.
+    e.target.parentNode.remove();
+
+    quiz.questionArray = await quiz.fetchQuestions(5);
+    quiz.createQuestionArray();
+
+    document.getElementById('question-container').append(quiz.elementArray[0].questionElement)
+})
+  
+
+    //använd den här arrayen för att instansiera Interface och GameState. 
+
+
+    //ordna en submitknapp som visas på sista frågan.
+
+
+
+    // FINNS OCKSÅ TRUE OCH FALSE-FRÅGOR. SE TILL ATT MAN BARA KAN VÄLJA ETT ALTERNATIV DÅ.
+ 
+ 
+
+  //visa första frågan. datan måste vara inlagd i createQuestionarray iinnan det drar igång.
+  
   //jag ska ha ett inputfält med regex som kollar om det är 5-10. Även en knapp där man trycker på starta spel. Den startar spelet genom att 
   //initiera ett quiz-objekt och kör alla metoder i quiz.
+
+  //KLASSER KAN KOMMUNICERA DYNAMISKT GENOM ATT TA EMOT ANDRA OBJEKT SOM ARGUMENT.
 })
 
 

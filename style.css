@@ -1,0 +1,23 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 70vh;
+}
+
+#container{
+    border: solid 1px;
+}
+
+/* #question-container{
+    width: 500px;
+    min-height: 100px;
+} */
+
+form{
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+}
