@@ -8,26 +8,30 @@
 </head>
 <body>
     <div id="container">
-        <div id='question-container'></div>
-        <form action="">
-            <label for="name">Namn</label>
-            <input name="name" type="text">
-            <label for="number-of-questions">Number of questions (5-10)</label>
-            <input name="number-of-questions" type="text">
+        <div id='question-container'>
+            <form action="">
+                <label for="player-name">Name</label>
+                <input name="player-name" id='player-name' type="text">
+                <label for="number-of-questions">Number of questions (5-10)</label>
+                <input name="number-of-questions" id='number-of-questions' type="text">
 
-            <button type="button" id='start-btn'>Starta spelet</button>
-        </form>
+                <button type="button" id='start-btn'>Start quiz</button>
+            </form>
         <!-- formulär som vias med namn och antal frågor -->
         <!-- Här lägger jag in frågor -->
         </div>
-        <button type="button" id='previous-btn'>Previous question</button>
-        <button type="button" id='next-btn'>Next question</button>
+        <div id='button-div'>
+            <button type="button" id='previous-btn'>Previous question</button>
+            <button type="button" id='Submit-btn'>Submit answers</button>
+            <button type="button" id='next-btn'>Next question</button>
+        </div>
     </div>
         <!-- knappar -->
         
     <script src="js/Game.js"></script>
     <script src="js/Question.js"></script>
     <script src="js/Questions.js"></script>
+    <script src="js/Interface.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>

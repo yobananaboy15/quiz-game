@@ -9,15 +9,14 @@ body {
 
 #container{
     border: solid 1px;
+    padding: 1rem;
 }
 
-/* #question-container{
-    width: 500px;
-    min-height: 100px;
-} */
+#button-div{
+    padding: 0.5rem;
+}
 
 form{
-    padding: 1em;
     display: flex;
     flex-direction: column;
 }
