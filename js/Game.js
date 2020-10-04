@@ -5,7 +5,7 @@ class Game {
     }
     //behövs denna klass?
     calculatePoints(){
-
+        //kan samarbeta med checkcorrect answers.
     }
 
     CheckCorrectAnswers(collection, answerArr){

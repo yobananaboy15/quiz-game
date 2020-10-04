@@ -25,8 +25,12 @@ class Interface {
         document.getElementById('question-container').append(this.elementArray[0].questionElement)
     }
 
-    endGame(){
-
+    endGame(elem){
+        let btn = document.createElement('button');
+        btn.textContent = 'Tryck här för att spela igen'
+        btn.addEventListener('click', e => document.getElementById('question-container').firstElementChild.replaceWith(elem))
+        document.getElementById('question-container').firstElementChild.replaceWith(btn)
+        
     }
 
     //hur pratar det här objektet med quiz?
