@@ -1,15 +1,24 @@
 class Interface {
     constructor(arr){
-        this.currentQuestion = 0;
+        this.currentQuestionIndex = 0;
         this.elementArray = arr;
     }
 
     nextQuestion(){
-        document.getElementById('question-container').firstElementChild.replaceWith(this.elementArray[1].questionElement)
+
+        if (!(this.currentQuestionIndex === this.elementArray.length - 1)){
+            document.getElementById('question-container').firstElementChild.replaceWith(this.elementArray[this.currentQuestionIndex + 1].questionElement)
+            this.currentQuestionIndex++
+        }
+        
     }
 
     previousQuestion(){
-        document.getElementById('question-container').firstElementChild.replaceWith(this.elementArray[0].questionElement)
+        if(this.currentQuestionIndex){
+            document.getElementById('question-container').firstElementChild.replaceWith(this.elementArray[this.currentQuestionIndex - 1].questionElement)
+            this.currentQuestionIndex--
+        }
+        
     }
 
     newGame(){

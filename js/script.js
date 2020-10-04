@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', e => {
 
+  // let testNode;
+
   document.getElementById('start-btn').addEventListener('click', async e =>{
 
     let playerName = document.getElementById('player-name')
@@ -7,10 +9,10 @@ document.addEventListener('DOMContentLoaded', e => {
     let previousButton = document.getElementById('previous-btn')
     let nextButton = document.getElementById('next-btn')
 
-    if (playerName.value && +NumberOfQuestions.value >= 5 && +NumberOfQuestions.value <= 10) {
+    if (playerName.value && (+NumberOfQuestions.value) >= 5 && +NumberOfQuestions.value <= 10) {
 
       const quiz = new Questions();
-      quiz.questionArray = await quiz.fetchQuestions(+NumberOfQuestions);
+      quiz.questionArray = await quiz.fetchQuestions(+NumberOfQuestions.value);
       quiz.createQuestionArray();
 
       const game = new Game('axel', 0);
@@ -26,11 +28,19 @@ document.addEventListener('DOMContentLoaded', e => {
     //skapa knapp för submit, använder sig av game.
 
       //tar bort formuläret och visar den första frågan.
+      //spara form i variabel och använde igen för att starta om spelet. man kan köra append på 
+      let testNode = e.target.parentNode;
+
       e.target.parentNode.remove();
+
+      //document.getElementById('question-container').append(testNode);
+
       interface.newGame()
     }
       
   })
+  // console.log(testNode)
+  
     
 })
 
