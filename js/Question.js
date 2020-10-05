@@ -14,6 +14,7 @@ class Question {
         //skapar en array bestående av nycklarna från svarsalternativ-propertyn i questionobj.
         Object.keys(questionObj.answers).forEach(key =>{
 
+            //lägger till checkbox med svarsalternativ för varje key som inte ger värdet null.
             if(questionObj.answers[key]){
                 let input = document.createElement('input');
                 input.setAttribute('type', 'checkbox')

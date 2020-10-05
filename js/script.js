@@ -10,9 +10,11 @@ document.addEventListener('DOMContentLoaded', e => {
     let nextButton = document.getElementById('next-btn')
     let submitButton = document.getElementById('submit-btn')
 
+    //ordna så att felmeddelande skrivs ut om man inte skrivit rätt.
     if (playerName.value && (+NumberOfQuestions.value) >= 5 && +NumberOfQuestions.value <= 10) {
 
       const quiz = new Questions();
+      //hära den här datan utanför objetet och initiera question med den.
       quiz.questionArray = await quiz.fetchQuestions(+NumberOfQuestions.value);
       quiz.createQuestionArray();
 
@@ -34,8 +36,13 @@ document.addEventListener('DOMContentLoaded', e => {
       let startForm = e.target.parentNode
 
       submitButton.addEventListener('click', function(){
+        let newArr = quiz.questionArray.map(element => element.correct_answers)
+        let result = game.checkCorrectAnswers(quiz.elementArray, newArr)
+        document.getElementById('question-container').append('You got ' + result + '/' + quiz.elementArray.length + ' questions right!')
+
+
+        //game.checkCorrectAnswers() //ordna en array som innehåller objekt med rätt svar. kör filter - length för att få fram antal frågor som man svarat rätt på.
         //kör funktion som kollar poäng
-        //vill du spela igen i question div med en knapp + eventlistener?
         interface.endGame(startForm)
         nextButton.removeEventListener('click', nextQuestion)
         previousButton.removeEventListener('click', previousQuestion)

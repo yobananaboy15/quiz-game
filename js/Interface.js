@@ -27,8 +27,12 @@ class Interface {
 
     endGame(elem){
         let btn = document.createElement('button');
-        btn.textContent = 'Tryck här för att spela igen'
-        btn.addEventListener('click', e => document.getElementById('question-container').firstElementChild.replaceWith(elem))
+        btn.textContent = 'Click here to play again'
+        btn.addEventListener('click', e => {
+            document.getElementById('question-container').firstElementChild.replaceWith(elem);
+            document.getElementById('question-container').lastChild.remove(); //snygga till den här funktionen.
+
+        })
         document.getElementById('question-container').firstElementChild.replaceWith(btn)
         
     }
