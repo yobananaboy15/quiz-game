@@ -1,11 +1,16 @@
 class Game {
-    constructor(name, points){
+    constructor(name, questionData){
         this.name = name;
-        this.points = points;
+        this.points = 0;
+        this.rawQuestionData = questionData
+        this.elementArray = new Questions(questionData);
+        //skapa interface-klass?
+        new Interface (this.elementArray) //skicka in questiondata?
+
     }
     //behövs denna klass?
     calculatePoints(){
-        //kan samarbeta med checkcorrect answers.
+        //kan samarbeta med checkcorrect answers.s
     }
 
     checkCorrectAnswers(collection, answerArr){
@@ -31,4 +36,6 @@ class Game {
        return testArr.length
        
     }
+
+
 }

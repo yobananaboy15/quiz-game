@@ -2,6 +2,10 @@ class Interface {
     constructor(arr){
         this.currentQuestionIndex = 0;
         this.elementArray = arr;
+        //kör alla metoder som sätter eventlisteners här? 
+        this.nextQuestion()
+        //ha en metod som sätter alla listeners? 
+        //behövs ens den här klassen?
     }
 
     nextQuestion(){
