@@ -1,6 +1,5 @@
 body {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100vw;
@@ -13,8 +12,14 @@ body {
     width: 30%;
 }
 
+#question-container{
+    padding-bottom: 1em;
+}
+
 #button-div{
-    padding: 0.5rem;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0.5rem 0;
 }
 
 form{
@@ -24,6 +29,9 @@ form{
 
 input[type='text']{
     margin: 0.75em 0;
+    border: 2px solid #eee;
+    padding:10px;
+    border-radius:10px;
 }
 
 /* input[type='checkbox']{
