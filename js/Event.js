@@ -8,6 +8,23 @@ class Event {
         this.newGame() 
     }
 
+    newGame(){
+        
+        let startForm = document.getElementById('start-form')
+
+        this.boundNextQuestion = this.nextQuestion.bind(this) 
+        this.boundPreviousQuestion = this.previousQuestion.bind(this)
+        this.boundEndGame = this.endGame.bind(this, startForm)
+        
+        startForm.remove();
+        
+        document.getElementById('question-container').append(this.elementArray[0].questionElement)
+        this.showCurrentQuestion()
+
+        this.modifyEventListeners('add'); 
+        
+    }
+
     modifyEventListeners(add){ //snygga till funktion om tid finns.
   
         let nextButton = document.getElementById('next-btn')
@@ -29,21 +46,8 @@ class Event {
 
     }
 
-    newGame(){
-        
-        let startForm = document.getElementById('start-form')
-
-        this.boundNextQuestion = this.nextQuestion.bind(this) 
-        this.boundPreviousQuestion = this.previousQuestion.bind(this)
-        this.boundEndGame = this.endGame.bind(this, startForm)
-        
-        startForm.remove();
-        
-        document.getElementById('question-container').append(this.elementArray[0].questionElement)
-        this.showCurrentQuestion()
-
-        this.modifyEventListeners('add'); 
-        
+    showCurrentQuestion(){
+        document.getElementById('question-container').firstElementChild.textContent = 'Fråga ' + (this.currentQuestionIndex + 1)
     }
 
 
@@ -86,10 +90,6 @@ class Event {
         })
         document.getElementById('question-container').append(btn)
         
-    }
-
-    showCurrentQuestion(){
-        document.getElementById('question-container').firstElementChild.textContent = 'Fråga ' + (this.currentQuestionIndex + 1)
     }
 
 
