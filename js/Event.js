@@ -4,6 +4,7 @@ class Event {
         this.player = player
         this.elementArray = elementArray;
         this.correctAnswersArray = correctAnswersArray;
+        console.log(correctAnswersArray)
         this.currentQuestionIndex = 0;
         this.newGame() 
     }

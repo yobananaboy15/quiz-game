@@ -21,3 +21,11 @@ form{
     display: flex;
     flex-direction: column;
 }
+
+input[type='text']{
+    margin: 0.5em 0;
+}
+
+/* input[type='checkbox']{
+
+} */
