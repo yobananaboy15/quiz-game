@@ -38,8 +38,9 @@ class Event {
         this.boundEndGame = this.endGame.bind(this, startForm)
         
         startForm.remove();
+        
         document.getElementById('question-container').append(this.elementArray[0].questionElement)
-        //this.showCurrentQuestion()
+        this.showCurrentQuestion()
 
         this.modifyEventListeners('kek'); //där här måste fixas
         
@@ -51,7 +52,7 @@ class Event {
         if (!(this.currentQuestionIndex === this.elementArray.length - 1)){
             this.currentQuestionIndex++
             document.getElementById('question-container').firstElementChild.replaceWith(this.elementArray[this.currentQuestionIndex].questionElement)
-            //this.showCurrentQuestion()
+            this.showCurrentQuestion()
         }
         
     }
@@ -61,7 +62,7 @@ class Event {
         if(this.currentQuestionIndex){
             this.currentQuestionIndex--
             document.getElementById('question-container').firstElementChild.replaceWith(this.elementArray[this.currentQuestionIndex].questionElement)
-            //this.showCurrentQuestion()
+            this.showCurrentQuestion()
         }
         
     }
@@ -93,19 +94,14 @@ class Event {
 
 
     checkCorrectAnswers(collection, answerArr){
-
-        console.log(arguments)
-        
+    
         let playerAnswersCheckbox = collection.map(element => element.questionElement.querySelectorAll('input'))
         let playerAnswerArray = playerAnswersCheckbox.map(checkboxCollection => Array.from(checkboxCollection, checkbox => checkbox.checked ? true : false))
-        let newAnswerArray = answerArr.map(element => {
-            return Object.values(element).map(value => value === 'true' ? true : false)
-        }) //detta bör man kunna göra i game.
- 
+        
         //loopa igenom varje array i playerAnswer array --> om samtliga värden i varje array i playerAnswer 
         let testArr = playerAnswerArray.filter((element, index) => {
             for(let i = 0; i < element.length; i++){
-                if (!element[i] === newAnswerArray[index][i])
+                if (!element[i] === answerArr[index][i])
                 return false
             }
             return true

@@ -20,7 +20,10 @@ class Game {
     } 
     
     createCorrectAnswersArray (questionData){
-        return questionData.map(element => element.correct_answers)
+        let answerArr = questionData.map(element => element.correct_answers);
+        return answerArr.map(element => {
+            return Object.values(element).map(value => value === 'true' ? true : false)
+        }) 
     }
 
 

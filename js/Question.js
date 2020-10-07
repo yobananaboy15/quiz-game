@@ -20,12 +20,7 @@ class Question {
                 let input = document.createElement('input');
                 input.setAttribute('type', 'checkbox')
                 innerDiv.append(input)
-
-                //tar 7:e karaktären som är bokstaven för svarsalternativet
-                //div.append(key[7] + ') ')
-            
                 innerDiv.append(questionObj.answers[key])
-                
                 div.append(innerDiv)
             }
         })
