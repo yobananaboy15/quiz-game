@@ -12,6 +12,7 @@ class Event {
     newGame(){
         
         let startForm = document.getElementById('start-form')
+        //kan lägga till loop för att ta bort inputvärdena
 
         this.boundNextQuestion = this.nextQuestion.bind(this) 
         this.boundPreviousQuestion = this.previousQuestion.bind(this)
