@@ -8,13 +8,13 @@ class Event {
         this.newGame() 
     }
 
-    modifyEventListeners(kek){ //snygga till funktion om tid finns.
+    modifyEventListeners(add){ //snygga till funktion om tid finns.
   
         let nextButton = document.getElementById('next-btn')
         let previousButton = document.getElementById('previous-btn')
         let submitButton = document.getElementById('submit-btn')
       
-        if(kek){
+        if(add){
 
             nextButton.addEventListener('click', this.boundNextQuestion)
             previousButton.addEventListener('click', this.boundPreviousQuestion)
@@ -42,7 +42,7 @@ class Event {
         document.getElementById('question-container').append(this.elementArray[0].questionElement)
         this.showCurrentQuestion()
 
-        this.modifyEventListeners('kek'); //där här måste fixas
+        this.modifyEventListeners('add'); 
         
     }
 
@@ -51,7 +51,7 @@ class Event {
         
         if (!(this.currentQuestionIndex === this.elementArray.length - 1)){
             this.currentQuestionIndex++
-            document.getElementById('question-container').firstElementChild.replaceWith(this.elementArray[this.currentQuestionIndex].questionElement)
+            document.getElementById('question-container').children[1].replaceWith(this.elementArray[this.currentQuestionIndex].questionElement)
             this.showCurrentQuestion()
         }
         
@@ -61,7 +61,7 @@ class Event {
         
         if(this.currentQuestionIndex){
             this.currentQuestionIndex--
-            document.getElementById('question-container').firstElementChild.replaceWith(this.elementArray[this.currentQuestionIndex].questionElement)
+            document.getElementById('question-container').children[1].replaceWith(this.elementArray[this.currentQuestionIndex].questionElement)
             this.showCurrentQuestion()
         }
         
@@ -71,25 +71,25 @@ class Event {
 
         this.modifyEventListeners();
 
-        let result = this.checkCorrectAnswers(this.elementArray, this.correctAnswersArray)
-        
-        document.getElementById('question-container').append('You got ' + result + '/' + this.elementArray.length + ' questions right!')
-        
-        //console.log(this.restartForm)
+        this.checkCorrectAnswers(this.elementArray, this.correctAnswersArray)
+
+        document.getElementById('question-container').firstElementChild.textContent = 'You got ' + this.player.playerPoints + '/' + this.elementArray.length + ' questions right, ' + this.player.playerName + '!';
+        document.getElementById('question-container').children[1].remove()
 
         let btn = document.createElement('button');
         btn.textContent = 'Click here to play again'
         btn.addEventListener('click', e => {
-            document.getElementById('question-container').firstElementChild.replaceWith(startForm); //ändra jävla restartform
-            document.getElementById('question-container').lastChild.remove(); //snygga till den här funktionen.
-
+            document.getElementById('question-container').firstElementChild.textContent = "";
+            document.getElementById('question-container').append(startForm); 
+            e.target.remove()
+            
         })
-        document.getElementById('question-container').firstElementChild.replaceWith(btn)
+        document.getElementById('question-container').append(btn)
         
     }
 
     showCurrentQuestion(){
-        document.getElementById('question-container').firstElementChild.replaceWith('Fråga ' + (this.currentQuestionIndex + 1))
+        document.getElementById('question-container').firstElementChild.textContent = 'Fråga ' + (this.currentQuestionIndex + 1)
     }
 
 
@@ -98,7 +98,7 @@ class Event {
         let playerAnswersCheckbox = collection.map(element => element.questionElement.querySelectorAll('input'))
         let playerAnswerArray = playerAnswersCheckbox.map(checkboxCollection => Array.from(checkboxCollection, checkbox => checkbox.checked ? true : false))
         
-        //loopa igenom varje array i playerAnswer array --> om samtliga värden i varje array i playerAnswer 
+        //Loopa igenom varje array i playerAnswer array --> om samtliga värden i varje array i playerAnswer 
         let testArr = playerAnswerArray.filter((element, index) => {
             for(let i = 0; i < element.length; i++){
                 if (!element[i] === answerArr[index][i])
@@ -107,7 +107,6 @@ class Event {
             return true
         });
  
-        return testArr.length
-        
+        this.player.playerPoints = testArr.length    
      }
 }

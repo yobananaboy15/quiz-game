@@ -1,10 +1,6 @@
 document.addEventListener('DOMContentLoaded', e => {
 
-  // let testNode;
-
   document.getElementById('start-btn').addEventListener('click', async e =>{
-
-    //Kan jag flytta in allt rent av? 
 
     let numberOfQuestions = +document.getElementById('number-of-questions').value
     let playerName = document.getElementById('player-name').value

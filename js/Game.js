@@ -2,7 +2,6 @@ class Game {
     constructor(name, questionData){
 
         this.player = new Player(name)
-        //this.questionArray = questionData; //behövs detta?
         this.correctAnswersArray =  this.createCorrectAnswersArray(questionData)
         this.elementArray = this.createElementArray(questionData)
         this.event = new Event(this.player, this.elementArray, this.correctAnswersArray) 
