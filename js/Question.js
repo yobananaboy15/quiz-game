@@ -16,14 +16,17 @@ class Question {
 
             //lägger till checkbox med svarsalternativ för varje key som inte ger värdet null.
             if(questionObj.answers[key]){
+                let innerDiv = document.createElement('div')
                 let input = document.createElement('input');
                 input.setAttribute('type', 'checkbox')
-                div.append(input)
+                innerDiv.append(input)
 
                 //tar 7:e karaktären som är bokstaven för svarsalternativet
                 //div.append(key[7] + ') ')
             
-                div.append(questionObj.answers[key])
+                innerDiv.append(questionObj.answers[key])
+                
+                div.append(innerDiv)
             }
         })
 
