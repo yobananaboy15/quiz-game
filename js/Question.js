@@ -12,7 +12,7 @@ class Question {
         questionDiv.textContent = questionObj.question
         outerDiv.append(questionDiv);
 
-        //skapar en array bestående av nycklarna från svarsalternativ-propertyn i questionobj.
+        //Skapar en array bestående av nycklarna från svarsalternativ-propertyn i questionobj.
         Object.keys(questionObj.answers).forEach(key =>{
 
             //lägger till checkbox med svarsalternativ för varje key som inte ger värdet null.

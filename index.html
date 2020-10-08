@@ -9,7 +9,7 @@
 <body>
     <div id="container">
         <div id='question-container'>
-            <div></div>
+            <div id="current-question-div"></div>
 
             <form action="" id='start-form'>
                 <label for="player-name">Name</label>
@@ -21,17 +21,19 @@
             </form>
 
         </div>
-        <div id='button-div'>
-            <button type="button" id='previous-btn'>Previous question</button>
-            <button type="button" id='submit-btn'>Submit answers</button>
-            <button type="button" id='next-btn'>Next question</button>
+        <div id="button-div-wrapper" class="remove-display-class">
+            <div id='button-div'>
+                <button type="button" id='previous-btn'>Previous question</button>
+                <button type="button" id='submit-btn'>Submit answers</button>
+                <button type="button" id='next-btn'>Next question</button>
+            </div>
         </div>
     </div>
         
     <script src="js/Game.js"></script>
     <script src="js/Question.js"></script>
-    <script src="js/Event.js"></script>
     <script src="js/Player.js"></script>
+    <script src="js/Event.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>

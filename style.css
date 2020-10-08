@@ -12,14 +12,14 @@ body {
     width: 30%;
 }
 
-#question-container{
-    padding-bottom: 1em;
-}
-
 #button-div{
     display: flex;
     justify-content: space-evenly;
-    padding: 0.5rem 0;
+    padding: 0.75rem 0;
+}
+
+#current-question-div{
+    margin-bottom: 0.5rem;
 }
 
 form{
@@ -28,28 +28,26 @@ form{
 }
 
 input[type='text']{
-    margin: 0.75em 0;
+    margin: 0.75rem 0;
     border: 2px solid #eee;
     padding:10px;
     border-radius:10px;
 }
 
-/* input[type='checkbox']{
-
-} */
 
 button {
 
-    /* remove default behavior */
     appearance:none;
     -webkit-appearance:none;
-  
-    /* usual styles */
-    padding:10px;
+    padding:0.75rem;
     border:none;
     background-color:#3F51B5;
     color:#fff;
     font-weight:600;
     border-radius:5px;
   
+  }
+
+  .remove-display-class{
+      display: none;
   }
