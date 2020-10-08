@@ -53,7 +53,7 @@ class Event {
     }
 
     showCurrentQuestion(){
-        document.getElementById('question-container').firstElementChild.textContent = 'Fråga ' + (this.currentQuestionIndex + 1)
+        document.getElementById('question-container').firstElementChild.textContent = 'Fråga ' + (this.currentQuestionIndex + 1) + '/' + this.elementArray.length
     }
 
 
