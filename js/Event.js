@@ -8,7 +8,7 @@ class Event {
         this.newGame() 
     }
 
-    newGame(){
+    newGame(){    
         
         let startForm = document.getElementById('start-form')
 
@@ -18,9 +18,7 @@ class Event {
         this.boundEndGame = this.endGame.bind(this, startForm)
         this.modifyEventListeners('add'); 
         
-        console.log(startForm)
-
-        startForm.remove(); //startform is null?
+        startForm.remove(); 
         
         //Uppdaterar UIn så att användaren kan se spelknapparna och den första frågan och numret på den nuvarande frågan.
         document.getElementById('button-div-wrapper').classList.remove('remove-display-class')
@@ -30,6 +28,8 @@ class Event {
     }
 
     modifyEventListeners(add){ 
+        
+
         
         //Lägger till eller tar bort listeners
 
