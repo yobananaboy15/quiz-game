@@ -1,10 +1,10 @@
 class Game {
-    constructor(name, questionData){
+    constructor(name, questionData, startForm){
 
         this.player = new Player(name)
         this.correctAnswersArray =  this.createCorrectAnswersArray(questionData)
         this.elementArray = this.createElementArray(questionData)
-        this.event = new Event(this.player, this.elementArray, this.correctAnswersArray) 
+        this.event = new Event(this.player, this.elementArray, this.correctAnswersArray, startForm)
      
     }
 

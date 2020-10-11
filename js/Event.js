@@ -1,24 +1,21 @@
 class Event {
-    constructor(player, elementArray, correctAnswersArray){
+    constructor(player, elementArray, correctAnswersArray, startForm){
 
         this.player = player
         this.elementArray = elementArray;
         this.correctAnswersArray = correctAnswersArray;
         this.currentQuestionIndex = 0;
+        this.startForm = startForm;
         this.newGame() 
     }
 
     newGame(){    
         
-        let startForm = document.getElementById('start-form')
-
         //Förebereder eventlisteners och sätter dem.
         this.boundNextQuestion = this.nextQuestion.bind(this) 
         this.boundPreviousQuestion = this.previousQuestion.bind(this)
-        this.boundEndGame = this.endGame.bind(this, startForm)
-        this.modifyEventListeners('add'); 
-        
-        startForm.remove(); 
+        this.boundEndGame = this.endGame.bind(this, this.startForm)
+        this.modifyEventListeners('add');     
         
         //Uppdaterar UIn så att användaren kan se spelknapparna och den första frågan och numret på den nuvarande frågan.
         document.getElementById('button-div-wrapper').classList.remove('remove-display-class')
@@ -77,7 +74,7 @@ class Event {
         
     }
 
-    endGame(startForm){
+    endGame(){
 
         //Gör knapparna osynliga, tar bort eventlisteners från knapparna och kollar hur många rätt användaren fått.
         document.getElementById('button-div-wrapper').classList.add('remove-display-class')
@@ -93,7 +90,7 @@ class Event {
         btn.textContent = 'Click here to play again'
         btn.addEventListener('click', e => {
             document.getElementById('question-container').firstElementChild.textContent = "";
-            document.getElementById('question-container').append(startForm); 
+            document.getElementById('question-container').append(this.startForm); 
             e.target.remove()
             
         })
@@ -122,5 +119,9 @@ class Event {
         });
  
         this.player.playerPoints = testArr.length    
+     }
+
+     createStartForm(){
+
      }
 }
