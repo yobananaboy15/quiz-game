@@ -121,7 +121,4 @@ class Event {
         this.player.playerPoints = testArr.length    
      }
 
-     createStartForm(){
-
-     }
 }
