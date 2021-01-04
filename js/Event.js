@@ -1,3 +1,5 @@
+)//Bör jag ah en ciontroller och en eventklass?
+
 class Event {
     constructor(player, elementArray, correctAnswersArray, startForm){
 
@@ -41,6 +43,7 @@ class Event {
             submitButton.addEventListener('click', this.boundEndGame)
 
         } else {
+            //Instead of removing eventlisteners, remove the elements and add new ones when the game restarts.
 
             nextButton.removeEventListener('click', this.boundNextQuestion)
             previousButton.removeEventListener('click', this.boundPreviousQuestion)
@@ -50,6 +53,7 @@ class Event {
     }
 
     showCurrentQuestion(){
+        //Den här informationen ska hämtas utifrån
         document.getElementById('question-container').firstElementChild.textContent = 'Fråga ' + (this.currentQuestionIndex + 1) + '/' + this.elementArray.length
     }
 
@@ -102,6 +106,8 @@ class Event {
 
 
     checkCorrectAnswers(elementArray, answerArr){
+
+        //This belongs in the game class.
         
         //Kör map på elementArray och skapar en array med nodelists bestående av alla input-element för respektive fråga.
         //Mappar sedan den arrayen och gör om varje nodelist till en array med boolean värden som motsvarar status på checkboxarna.
